@@ -391,3 +391,7 @@ xyplot(meansteps ~ interval | daytype, data = rdf, type = "l", main = "", xlab =
 
 ![plot of chunk unnamed-chunk-21](figure/unnamed-chunk-21.png) 
 
+
+We see that there is in fact a difference in behaviour between weekdays and weekends.
+
+It appears that on weekdays, people are more active in the mornings and sedentary for the day. Activity is more consisten throughout the day on weekends. This is consistent with people travelling to work in the morning and sitting throughout the day on weekdays, and being more active on the weekends. 
