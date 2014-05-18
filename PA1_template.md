@@ -11,7 +11,21 @@ We must assume that the user has set the proper working directory, so we begin b
 
 ```r
 require("lattice")
+```
+
+```
+## Loading required package: lattice
+```
+
+```r
 require("plyr")
+```
+
+```
+## Loading required package: plyr
+```
+
+```r
 library(plyr)
 library(lattice)
 ```
@@ -102,7 +116,8 @@ Then we simply plot a histogram of the total steps. We use breaks=10 for clarity
 
 
 ```r
-hist(tdf$totalsteps, breaks = 10)
+hist(tdf$totalsteps, breaks = 10, main = "Histogram of Total Steps", xlab = "Total Steps", 
+    ylab = "Frequency")
 ```
 
 ![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6.png) 
@@ -155,7 +170,8 @@ summary(idf)
 Creating the plot is then straightforward. 
 
 ```r
-plot(idf$interval, idf$meansteps, type = "l")
+plot(idf$interval, idf$meansteps, type = "l", main = "", xlab = "Interval", 
+    ylab = "Average Steps")
 ```
 
 ![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9.png) 
@@ -251,12 +267,12 @@ summary(tdf)
 ```
 
 
-Plot a histogram
+Plot a histogram for the imputed totals
 
 
 ```r
-# plot a histogram
-hist(tdfimputed$totalsteps, breaks = 10)
+hist(tdfimputed$totalsteps, breaks = 10, main = "Total Steps of Imputed Data", 
+    xlab = "Total Steps", ylab = "Frequency")
 ```
 
 ![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15.png) 
@@ -306,7 +322,8 @@ summary(idfimputed)
 ```
 
 ```r
-plot(idfimputed$interval, idfimputed$meansteps, type = "l")
+plot(idfimputed$interval, idfimputed$meansteps, type = "l", main = "Imputed Data", 
+    xlab = "Interval", ylab = "Average Steps")
 ```
 
 ![plot of chunk unnamed-chunk-17](figure/unnamed-chunk-17.png) 
@@ -382,7 +399,8 @@ We are now ready to plot. Creating multi-panel plots is simple using the lattice
 
 
 ```r
-xyplot(meansteps ~ interval | daytype, data = rdf, type = "l")
+xyplot(meansteps ~ interval | daytype, data = rdf, type = "l", main = "", xlab = "Interval", 
+    ylab = "Average Steps")
 ```
 
 ![plot of chunk unnamed-chunk-21](figure/unnamed-chunk-21.png) 

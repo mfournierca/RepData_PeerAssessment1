@@ -59,7 +59,7 @@ We begin by creating new data frame containing the sum of steps for each day.
 Then we simply plot a histogram of the total steps. We use breaks=10 for clarity. 
 
 ```{r echo=TRUE}
-  hist(tdf$totalsteps, breaks=10)
+  hist(tdf$totalsteps, breaks=10, main="Histogram of Total Steps", xlab="Total Steps", ylab="Frequency")
 ```
 
 ### 2. Calculate and report the mean and median
@@ -83,7 +83,7 @@ To plot this graph, we must summarise the mean steps accross each interval. This
 
 Creating the plot is then straightforward. 
 ```{r echo=TRUE}
-  plot(idf$interval, idf$meansteps, type="l")
+  plot(idf$interval, idf$meansteps, type="l", main="", xlab="Interval", ylab="Average Steps")
 ```
 
 ### 2. Which 5-minute interval has the highest average number of steps? 
@@ -137,11 +137,10 @@ First create a new data frame with the total steps for each day.
   summary(tdf)
 ```  
 
-Plot a histogram
+Plot a histogram for the imputed totals
 
 ```{r echo=TRUE}
-  #plot a histogram
-  hist(tdfimputed$totalsteps, breaks=10)
+  hist(tdfimputed$totalsteps, breaks=10, main="Total Steps of Imputed Data", xlab="Total Steps", ylab="Frequency")
 ```
 
 Calculate the mean and median. 
@@ -160,7 +159,7 @@ We do not expect our imputing method to have any effect. We create a summary and
 ```{r echo=TRUE}
   idfimputed <- ddply(dfimputed, ~ interval, summarise, meansteps=mean(steps, na.rm=TRUE))
   summary(idfimputed)
-  plot(idfimputed$interval, idfimputed$meansteps, type="l")
+  plot(idfimputed$interval, idfimputed$meansteps, type="l", main="Imputed Data", xlab="Interval", ylab="Average Steps")
 ```
 
 We do not detect any difference in the imputed data. 
@@ -203,5 +202,5 @@ We then bind the data frames back together.
 We are now ready to plot. Creating multi-panel plots is simple using the lattice system, so we use the xyplot() function. 
 
 ```{r echo=TRUE}
-  xyplot(meansteps ~ interval | daytype, data=rdf, type="l")
+  xyplot(meansteps ~ interval | daytype, data=rdf, type="l", main="", xlab="Interval", ylab="Average Steps")
 ```
