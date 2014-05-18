@@ -11,21 +11,7 @@ We must assume that the user has set the proper working directory, so we begin b
 
 ```r
 require("lattice")
-```
-
-```
-## Loading required package: lattice
-```
-
-```r
 require("plyr")
-```
-
-```
-## Loading required package: plyr
-```
-
-```r
 library(plyr)
 library(lattice)
 ```
